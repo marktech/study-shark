@@ -15,7 +15,7 @@ This workspace contains the Study Shark web project and a generated Pygbag build
 The generated Pygbag app must be served over HTTP because the runtime uses `fetch()` internally. Open a terminal and run:
 
 ```powershell
-cd "c:\Users\Tidus\OneDrive\Desktop\study-shark-dev\study.shark.games\build\web"
+cd "root\study.shark.games\build\web"
 python -m http.server 8000
 ```
 
