@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="UTF-8">
-      <link rel="stylesheet" href="style.css">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Home</title>
-      <link rel="icon" type="favicon" href=".\favicon\favicon.png">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/png" href="favicon/favicon.png">
   </head>
   <body>
     <div class="logo-container">
       <img src="favicon/favicon.png" alt="StudyShark Logo" class="logo">
       <div class="name"><h1><strong>StudyShark</strong></h1></div>
     </div>
-    <nav class="menu">
-      <ul>
-        <li><a href="study-shark.html">Study-Shark</a></li>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="update.html">Update </a></li>
-        <li><a href="about.html">Help </a></li>
-      </ul>
-    </nav>
-    <div class="canvas">
 
-    </div>
+    <nav class="menu" aria-label="Primary navigation">
+      <div class="menu-inner">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+        <ul id="primary-navigation">
+          <li><a href="study-shark.html">Study-Shark</a></li>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="update.html">Update</a></li>
+          <li><a href="about.html">Help</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="page-body">
+      <section class="hero">
+        <div class="hero-description">
+          <p>Welcome to StudyShark. This page is now aligned with the responsive design used across the site, so it displays cleanly on mobile phones and tablets.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="study-shark.html">Play StudyShark</a>
+            <a class="secondary-button" href="update.html">View Update Notes</a>
+          </div>
+          <details class="info-panel">
+            <summary>Why use StudyShark?</summary>
+            <p>StudyShark helps you stay focused, enjoy learning, and quickly access study tools from any device.</p>
+          </details>
+        </div>
+      </section>
+
+      <div class="canvas">
+        <div class="study-shark-games-div">
+          <p style="padding: 24px; text-align: center; color: #1a2c54;">Use the menu above to open the game or visit Help for more information.</p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const menu = document.querySelector('.menu');
+      menuToggle?.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    </script>
   </body>
 </html>

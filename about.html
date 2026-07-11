@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help</title>
-    <link rel="icon" type="favicon" href=".\favicon\favicon.png">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help</title>
+  <link rel="icon" type="image/png" href="favicon/favicon.png">
 </head>
 <body>
-       <div class="logo-container">
-      <img src="favicon/favicon.png" alt="StudyShark Logo" class="logo">
- <div class="name"><h1><strong>StudyShark</strong></h1></div>
- </div>
-  <nav class="menu">
-  <ul>
-    <li><a href="study-shark.html">Study-Shark</a></li>
-    <li><a href="home.html">Home</a></li>
-    <li><a href="update.html">Update </a></li>
-    <li><a href="about.html">Help </a></li>
-  </ul>
-</nav>
-<div class="canvas">
+  <div class="logo-container">
+    <img src="favicon/favicon.png" alt="StudyShark Logo" class="logo">
+    <div class="name"><h1><strong>StudyShark</strong></h1></div>
+  </div>
 
-</div>
+  <nav class="menu" aria-label="Primary navigation">
+    <div class="menu-inner">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+      <ul id="primary-navigation">
+        <li><a href="study-shark.html">Study-Shark</a></li>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="update.html">Update</a></li>
+        <li><a href="about.html">Help</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-body">
+    <section class="hero">
+      <div class="hero-description">
+        <p>Need assistance? This Help page now uses the same responsive navigation and layout as the rest of the site.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="home.html">Back to Home</a>
+          <a class="secondary-button" href="study-shark.html">Launch the Game</a>
+        </div>
+        <details class="info-panel">
+          <summary>Site support</summary>
+          <p>StudyShark works best on modern mobile browsers. If pages do not render, refresh the browser or open the game directly in a new tab.</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="canvas">
+      <div class="study-shark-games-div">
+        <p style="padding: 24px; text-align: center; color: #1a2c54;">Contact the project owner or use the built-in browser controls to navigate back and forth.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  </script>
 </body>
 </html>

@@ -2,47 +2,72 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href=" https://marktech.github.io/study-shark/style.css">
+    <link rel="stylesheet" href="https://marktech.github.io/study-shark/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyShark</title>
-    <!-- Favicon (Logo in browser tab) -->
-    <link rel="icon" type="favicon" href="https://github.com/marktech/study-shark/tree/main/favicon/favicon.png">
-      
+    <link rel="icon" type="image/png" href="https://marktech.github.io/study-shark/favicon/favicon.png">
   </head>
-    <style>
-          .my-custom-div {
-              width: 800px;
-              height: 600px;
-              border: 2px solid black;
-              margin: 0 auto;
-          }
-          iframe {
-              width: 100%;
-              height: 100%;
-              border: none;
-          }
-    </style>
   <body>
     <div class="logo-container">
-      <img src=" https://marktech.github.io/study-shark/favicon/favicon.png" alt="StudyShark Logo" class="logo">
+      <img src="https://marktech.github.io/study-shark/favicon/favicon.png" alt="StudyShark Logo" class="logo">
       <div class="name"><h1><strong>StudyShark</strong></h1></div>
     </div>
-    <nav class="menu">
-      <ul>
-        <li><a href=" https://marktech.github.io/study-shark/study-shark.html">Study-Shark</a></li>
-        <li><a href=" https://marktech.github.io/study-shark/home.html">Home</a></li>
-        <li><a href=" https://marktech.github.io/study-shark/update.html">Update </a></li>
-        <li><a href=" https://marktech.github.io/study-shark/about.html">Help </a></li>
-      </ul>
+
+    <nav class="menu" aria-label="Primary navigation">
+      <div class="menu-inner">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+        <ul id="primary-navigation">
+          <li><a href="https://marktech.github.io/study-shark/study-shark.html">Study-Shark</a></li>
+          <li><a href="https://marktech.github.io/study-shark/home.html">Home</a></li>
+          <li><a href="https://marktech.github.io/study-shark/update.html">Update</a></li>
+          <li><a href="https://marktech.github.io/study-shark/about.html">Help</a></li>
+        </ul>
+      </div>
     </nav>
-    <div class="canvas">
-      <div> </div>
-        <div class="my-custom-div">
-          <!-- Load the compiled Pygame index.html into the div -->
-          <!-- <iframe src="http://localhost:8000/index.html"></iframe> -->
-          <iframe src="https://marktech.github.io/study-shark-game/"></iframe>
-          <!-- <iframe src="study.shark.games\build\web\index.html"></iframe> -->
-        </div>  
-    </div>
+
+    <main class="page-body">
+      <section class="hero">
+        <div class="hero-description">
+          <p>Play the StudyShark web game below with a mobile-friendly interface, fast navigation, and quick access to the game in a new tab.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="https://marktech.github.io/study-shark-game/" target="_blank" rel="noopener">Open Game in New Tab</a>
+            <button class="secondary-button" id="toggle-instructions" type="button">Show Game Tips</button>
+          </div>
+          <details class="info-panel" id="instructions">
+            <summary>How to use this page</summary>
+            <p>Tap the game to activate it, then swipe to play. On smaller phones, open the game in a separate tab for the best experience.</p>
+            <p>If the embedded game does not load, refresh the page or use the direct link button above.</p>
+          </details>
+        </div>
+      </section>
+
+      <div class="canvas">
+        <div class="study-shark-games-div">
+          <iframe src="https://marktech.github.io/study-shark-game/" title="StudyShark Web Game"></iframe>
+        </div>
+        <div class="fallback">
+          Can’t load the game here? <a href="https://marktech.github.io/study-shark-game/" target="_blank" rel="noopener">Open it in a new tab</a>.
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const menu = document.querySelector('.menu');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const instructions = document.getElementById('instructions');
+
+      menuToggle?.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      document.getElementById('toggle-instructions')?.addEventListener('click', () => {
+        if (instructions.open) {
+          instructions.removeAttribute('open');
+        } else {
+          instructions.setAttribute('open', '');
+        }
+      });
+    </script>
   </body>
 </html>
