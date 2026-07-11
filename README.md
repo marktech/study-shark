@@ -15,7 +15,7 @@ This workspace contains the Study Shark web project and a generated Pygbag build
 The generated Pygbag app must be served over HTTP because the runtime uses `fetch()` internally. Open a terminal and run:
 
 ```powershell
-cd "root\study.shark.games\build\web"
+cd "{root}\study.shark.games\build\web"
 python -m http.server 8000
 ```
 
@@ -24,6 +24,31 @@ Then open in your browser:
 ```text
 http://localhost:8000/index.html
 ```
+
+## Running the Pygame app locally
+
+To run the `study.shark.games` Pygame app on your machine:
+
+1. Open a terminal.
+2. Change into the game directory:
+
+```powershell
+cd "{root}\study.shark.games"
+```
+
+3. Install Pygame if needed:
+
+```powershell
+python -m pip install pygame
+```
+
+4. Run the game:
+
+```powershell
+python main.py
+```
+
+If you are using a virtual environment, activate it before installing or running the game.
 
 ## Offline/local support
 
