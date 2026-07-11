@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.menu {
+  background-color: #0a1f44;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+/* Menu list */
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Menu items */
+.menu li {
+  margin: 5px 20px;
+}
+
+/* Menu links */
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #00bfff;
+}
+
+.logo-container {
+    background-color: #0a1f44;
+  display: flex;          /* puts logo + text in a row */
+  align-items: center;    /* vertically centers them */
+  gap: 10px;              /* space between logo and text */
+  justify-content: center;/* centers the whole block */
+}
+
+.logo {
+  width: 50px;   /* shrink logo size */
+  height: auto;  /* keep proportions */
+}
+
+h1 {
+  margin: 0;     /* remove extra spacing */
+  color: lightblue;/* optional: match your theme */
+}
+
+.canvas{
+margin: 0;
+height: 900px;
+    background-color: cyan;}ss

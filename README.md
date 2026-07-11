@@ -1,0 +1,38 @@
+# Study Shark Dev
+
+This workspace contains the Study Shark web project and a generated Pygbag build for the `study.shark.games` app.
+
+## Project structure
+
+- `study.shark.html` - main HTML page for the Study Shark app
+- `index.js` - site JavaScript
+- `style.css` - main stylesheet
+- `study.shark.games/` - generated Pygbag build directory
+  - `build/web/` - browser deployable web app
+
+## Opening the Pygbag web build locally
+
+The generated Pygbag app must be served over HTTP because the runtime uses `fetch()` internally. Open a terminal and run:
+
+```powershell
+cd "c:\Users\Tidus\OneDrive\Desktop\study-shark-dev\study.shark.games\build\web"
+python -m http.server 8000
+```
+
+Then open in your browser:
+
+```text
+http://localhost:8000/index.html
+```
+
+## Offline/local support
+
+A local copy of `pythons.js` and `empty.html` has been configured in `study.shark.games/build/web`. The app is now set up to avoid some remote CDN dependencies.
+
+If you need to update or rebuild the Pygbag web package, re-run your Pygbag export or bundler and then verify the local asset paths in `study.shark.games/build/web/index.html`.
+
+## Notes
+
+- `study.shark.games/build/web/index.html` is the main generated page for the Pygbag build
+- `study.shark.games/build/web/study.shark.games.apk` and `.tar.gz` are the packaged app archives
+- A local HTTP server is required for the app to run correctly
