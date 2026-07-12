@@ -147,11 +147,24 @@ class SnakeGame:
             random.randint(0, (SCREEN_HEIGHT - GRID_SIZE) // GRID_SIZE) * GRID_SIZE
         )
 
+    def set_direction(self, new_direction):
+        if new_direction[0] == -self.direction[0] and new_direction[1] == -self.direction[1]:
+            return
+        self.direction = new_direction
+
     def handle_input(self, keys):
-        if keys[pygame.K_LEFT] and self.direction != (GRID_SIZE, 0):   self.direction = (-GRID_SIZE, 0)
-        if keys[pygame.K_RIGHT] and self.direction != (-GRID_SIZE, 0):  self.direction = (GRID_SIZE, 0)
-        if keys[pygame.K_UP] and self.direction != (0, GRID_SIZE):     self.direction = (0, -GRID_SIZE)
-        if keys[pygame.K_DOWN] and self.direction != (0, -GRID_SIZE):   self.direction = (0, GRID_SIZE)
+        if keys[pygame.K_LEFT]:
+            self.set_direction((-GRID_SIZE, 0))
+        if keys[pygame.K_RIGHT]:
+            self.set_direction((GRID_SIZE, 0))
+        if keys[pygame.K_UP]:
+            self.set_direction((0, -GRID_SIZE))
+        if keys[pygame.K_DOWN]:
+            self.set_direction((0, GRID_SIZE))
+
+    def handle_touch(self, direction):
+        if direction is not None:
+            self.set_direction((direction[0] * GRID_SIZE, direction[1] * GRID_SIZE))
 
     def update(self):
         self.move_delay += 1
